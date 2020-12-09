@@ -8,11 +8,11 @@ class Dataset(object):
         self.root = "/home/carmen/catkin_ws/src/AMOD/object-detection"
         self.transforms = transforms
         # load all npz files
-        self.files = list(sorted(os.listdir(os.path.join(self.root, "RELATIVE_FILE_PATH_HERE"))))
+        self.files = list(sorted(os.listdir(os.path.join(self.root, "data_collection/dataset"))))
 
     def __getitem__(self, idx):
         # load images, boxes and classes
-        file_path = os.path.join(self.root, "RELATIVE_FILE_PATH_HERE", self.files[idx])
+        file_path = os.path.join(self.root, "data_collection/dataset", self.files[idx])
 
         data = np.load(file_path)
         img = data[f"arr_{0}"]
